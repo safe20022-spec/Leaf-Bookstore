@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Pages/Home';
-import BooksGrid from './Pages/BooksGrid';
 import { useAuthStore } from './Store/useAuthStore';
 import LoginPage from './Pages/LoginPage';
 import SignUpPage from './Pages/SignUpPage';
+import Books from './Pages/Books';
+
 
 const App = () => {
   const { isAuthenticated } = useAuthStore();
@@ -15,7 +16,7 @@ const App = () => {
         
         <Route 
           path="/books" 
-          element={isAuthenticated ? <BooksGrid /> : <Navigate to="/login" />} 
+          element={isAuthenticated ? <Books /> : <Navigate to="/login" />} 
         />
         
         <Route path="/signup" element={<SignUpPage />} />

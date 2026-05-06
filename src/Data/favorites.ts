@@ -1,0 +1,1 @@
+export const USER_FAVORITES: string[] = ["b1", "b3"];

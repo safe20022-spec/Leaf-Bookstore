@@ -46,7 +46,7 @@ const SignUpPage = () => {
       <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-green-100 border border-green-50 w-full max-w-md">
         <h1 className="text-3xl font-black text-gray-900 mb-6 text-center">Create Account</h1>
         
-        {error && <div className="bg-red-50 text-red-600 p-4 rounded-2xl mb-6 text-xs font-bold">⚠️ {error}</div>}
+        {error && <div className="bg-red-50 text-red-600 p-4 rounded-2xl mb-6 text-sm font-bold">⚠️ {error}</div>}
 
         <form onSubmit={handleSignUp} className="space-y-4">
           <div className="relative">
@@ -60,7 +60,7 @@ const SignUpPage = () => {
 
           <div className="relative">
             <input 
-              type="email" placeholder="Email Address"
+              type="text" placeholder="Email Address"
               className="w-full bg-gray-50 border-none rounded-2xl py-4 pl-12 pr-4 outline-none focus:ring-2 focus:ring-green-500"
               onChange={(e) => setFormData({...formData, email: e.target.value})}
             />
@@ -76,7 +76,7 @@ const SignUpPage = () => {
             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
           </div>
 
-          <button type="submit" className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-green-700 transition-all">
+          <button type="submit" className="w-full cursor-pointer bg-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-green-700 transition-all">
             Get Started <ArrowRight size={18} />
           </button>
         </form>
