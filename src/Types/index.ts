@@ -10,6 +10,7 @@ export interface Book {
   averageRating: number;
   totalHearts: number;
   createdAt: string;
+  publisher: string;
 }
 
 export interface Review {
@@ -30,3 +31,9 @@ export interface Favorite {
 export type EnhancedBook = Book & {
   totalReviews: number;
 };
+
+export interface User {
+  name: string;
+  email: string;
+  avatar?: string;
+}

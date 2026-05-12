@@ -7,35 +7,34 @@ import ListView from './ListView';
 import BooksSkeleton from './BooksSkeleton';
 
 const BooksGridContainer = () => {
-  const { viewMode, setViewMode, timeFilter, setTimeFilter } = useViewStore();
+  const { viewMode, setViewMode, timeFilter, filters } = useViewStore();
 
   const { data: books, isLoading, isError } = useQuery({
-    queryKey: ['books', timeFilter],
-    queryFn: bookService.getBooks,
+    queryKey: ['books', timeFilter, filters],
+    
+    queryFn: () => bookService.getBooks({ timeFilter, filters }),
+    
     staleTime: 1000 * 60 * 5,
   });
 
-if (isLoading) {
+  if (isLoading) {
     return (
       <div className="flex-1">
         <ControlBar 
           viewMode={viewMode} 
-          setViewMode={setViewMode}
-          activeTimeFilter={timeFilter}
-          setTimeFilter={setTimeFilter}
-        />
+          setViewMode={setViewMode}        />
         <BooksSkeleton viewMode={viewMode} />
       </div>
     );
   }  
-    if (isError) return <div className="py-20 text-center text-red-500">Failed to load books.</div>;
+
+  if (isError) return <div className="py-20 text-center text-red-500">Failed to load books.</div>;
+
   return (
     <div className="flex-1">
       <ControlBar 
         viewMode={viewMode} 
         setViewMode={setViewMode}
-        activeTimeFilter={timeFilter}
-        setTimeFilter={setTimeFilter}
       />
 
       {viewMode === 'grid' ? (

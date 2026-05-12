@@ -1,10 +1,5 @@
 import { create } from 'zustand';
-
-interface User {
-  name: string;
-  email: string;
-  avatar?: string;
-}
+import type { User } from '../Types/index.ts';
 
 interface AuthState {
   user: User | null;
