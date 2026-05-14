@@ -11,6 +11,8 @@ export interface Book {
   totalHearts: number;
   createdAt: string;
   publisher: string;
+  isOnSale: boolean;
+  discountPercentage?: number;
 }
 
 export interface Review {

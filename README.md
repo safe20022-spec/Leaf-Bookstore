@@ -1,74 +1,114 @@
-# 📚 Lumina Bookstore - Full-Stack MERN Project
-
+📚 Lumina Bookstore - Full-Stack MERN Project
 Lumina is a modern, high-performance E-commerce platform for book enthusiasts. Built with a focus on user experience (UX) and clean architecture, it offers a seamless interface for browsing, discovering, and purchasing books.
 
-## 🚀 Tech Stack
+🚀 Tech Stack
+Frontend: React.js 18 with TypeScript
 
-- **Frontend:** React.js 18 with TypeScript
-- **Styling:** Tailwind CSS (Utility-first CSS)
-- **Icons:** Lucide React
-- **Build Tool:** Vite (for lightning-fast HMR)
-- **Design Pattern:** Component-Based Architecture
+Styling: Tailwind CSS (Utility-first CSS)
 
-## ✨ Key Features (Currently Implemented)
+Icons: Lucide React
 
+Build Tool: Vite (for lightning-fast HMR)
+
+Design Pattern: Component-Based Architecture
+
+✨ Key Features (Currently Implemented)
 The Home Page is fully developed with a responsive design and the following sections:
-- **Dynamic Hero Section:** Engaging visual entry point with primary promotional offers.
-- **Service Features:** Highlighting core value propositions (Secure Payment, Quick Delivery).
-- **Curated Selections:** Reusable components for "Recommended For You" and "Popular in 2026" with unique geometric decorations.
-- **Special Offers:** Interactive product cards featuring hover-lift effects and subtle green shadowing for better engagement.
-- **Flash Sale Grid:** A high-density grid layout designed to showcase time-sensitive deals.
-- **Featured Book Showcase:** A focus section providing deep-dives into top-rated books with detailed descriptions.
-- **User Testimonials:** Social proof section featuring an avatar stack and customer reviews to build trust.
-- **Latest News (Blog):** A magazine-style layout for book reviews and industry updates.
-- **Global Stats:** Impact counters showing customer growth and collection size.
-- **Premium Newsletter:** A stylized, decorated subscription component to capture user leads.
 
-## 🛠️ Local Installation
+Dynamic Hero Section: Engaging visual entry point with primary promotional offers.
 
+Service Features: Highlighting core value propositions (Secure Payment, Quick Delivery).
+
+Curated Selections: Reusable components for "Recommended For You" and "Popular in 2026" with unique geometric decorations.
+
+Special Offers: Interactive product cards featuring hover-lift effects and subtle green shadowing for better engagement.
+
+Flash Sale Grid: A high-density grid layout designed to showcase time-sensitive deals.
+
+Featured Book Showcase: A focus section providing deep-dives into top-rated books with detailed descriptions.
+
+User Testimonials: Social proof section featuring an avatar stack and customer reviews to build trust.
+
+Latest News (Blog): A magazine-style layout for book reviews and industry updates.
+
+Global Stats: Impact counters showing customer growth and collection size.
+
+Premium Newsletter: A stylized, decorated subscription component to capture user leads.
+
+🛠️ Local Installation
 To get this project running on your local machine:
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YourUsername/Lumina-Bookstore.git](https://github.com/YourUsername/Lumina-Bookstore.git)
+Clone the repository:
 
+Bash
+git clone https://github.com/YourUsername/Lumina-Bookstore.git
+Install dependencies:
 
-   ## 🚀 Phase 2: Authentication System & State Management
+Bash
+npm install
+Run the development server:
 
-Successfully implemented a robust authentication flow simulating real-world MERN stack patterns.
+Bash
+npm run dev
+🚀 Phase 2: Authentication System & State Management
+Implemented a robust authentication flow simulating real-world MERN stack patterns.
 
-### Key Technical Achievements:
-- **Service Layer Architecture**: Isolated data logic from UI components using an `authService`. This allows for seamless migration from `localStorage` to a real Backend API.
-- **Global State Management**: Integrated **Zustand** to manage user sessions and authentication persistence.
-- **Advanced Auth Flow**:
-    - **Sign Up**: Includes email regex validation, password strength checks, and duplicate user detection.
-    - **Auto-Login**: Automated session start upon successful registration for a frictionless UX.
-    - **Protected Routes**: Secure navigation to `/books` using authentication guards.
-- **Dynamic UI**: Implemented a reactive Header that toggles between (Login/Signup) and (User Profile/Logout) based on the global auth state.
+Key Technical Achievements:
+Service Layer Architecture: Isolated data logic using an authService for seamless future migration to Backend APIs.
 
-### Tech Stack Used:
-- **Zustand**: For global state.
-- **Lucide React**: For consistent iconography.
-- **React Router Dom**: For navigation and route protection.
-- **TypeScript**: For type-safe data handling.
+Global State Management: Integrated Zustand to manage user sessions and persistence.
 
-## 🚀 Phase 3: Protected Catalog & High-End UX Optimization
+Protected Routes: Secure navigation using authentication guards.
 
-In this phase, the focus shifted to building the core functionality of the protected `/books` route, ensuring a premium, persistent, and smooth user experience.
+🚀 Phase 3: Protected Catalog & High-End UX Optimization
+Focus on building the core functionality of the protected /books route.
 
-### Key Technical Achievements:
-- **First Protected Component**: Developed the `BooksGridContainer` as the primary entry point for authenticated users, integrating it within a secure route guard.
-- **Persistent View Preferences**: 
-    - Implemented a **Grid/List toggle** system using **Zustand**.
-    - Integrated **Zustand Middleware (Persist)** to save the user's layout preference in `localStorage`. 
-    - **Result**: The layout remains consistent even after page refreshes.
-- **Professional Skeleton Loading**: 
-    - Engineered custom **Skeleton Components** using Tailwind's `animate-pulse`.
-    - Designed adaptive layouts for the skeletons to match both **Grid** and **List** view modes, eliminating Layout Shift (CLS) during data fetching.
-- **Advanced Data Fetching**: Integrated **TanStack Query (React Query)** to handle server state, providing automated caching and synchronization for the book catalog.
-- **Sticky UX Navigation**: Implemented a **Sticky Control Bar** with `backdrop-blur` effects, ensuring the filtering and view controls are always accessible during scrolling.
+Key Technical Achievements:
+Persistent View Preferences: Grid/List toggle system using Zustand Persist.
 
-### Tech Stack Added:
-- **TanStack Query**: For server-state management.
-- **Zustand Persist**: For local storage synchronization.
-- **Tailwind CSS**: For skeleton animations and sticky layout positioning.
+Professional Skeleton Loading: Custom components using Tailwind's animate-pulse to eliminate Layout Shift (CLS).
+
+Advanced Data Fetching: Integrated TanStack Query for automated caching.
+
+🚀 Phase 4: Advanced Filtering System
+Engineered a sophisticated filtering engine simulating high-end E-commerce capabilities.
+
+Key Technical Achievements:
+Multi-Criteria Filtering: Simultaneous processing of Category, Price Range, Publisher, and Release Year.
+
+Hybrid Year Selection: A unique UI combining dropdowns for recent years with custom number inputs for archives.
+
+State-Driven Search: Every filter change triggers an optimized re-fetch through React Query.
+
+🚀 Phase 5: Dynamic Sales Engine & Interactive Slider
+Developed a specialized sales system that combines backend-style data processing with a smooth, interactive UI.
+
+Key Technical Achievements:
+Dynamic Price Calculation Engine:
+
+Built a logic in bookService to filter books with isOnSale: true.
+
+Implemented real-time calculation of newPrice and oldPrice based on discountPercentage, formatted with .toFixed(2) for financial precision.
+
+Custom-Built Slider (Native Performance):
+
+Engineered a high-performance Horizontal Slider using Native Browser Scrolling and CSS Snap Mandatory.
+
+Avoided external libraries to maintain a lightweight bundle while achieving smooth movement via scrollTo and behavior: 'smooth'.
+
+Reactive Navigation Indicators:
+
+Developed Pagination Dots that synchronize in real-time with the scroll position using the onScroll event.
+
+Added visual feedback with Active Dot Expansion animations.
+
+Robust Data Handling:
+
+Managed complex data structures where categories are handled as arrays and transformed into readable strings using .join().
+
+Updated Tech Stack:
+React Refs & State: For precise DOM manipulation of the slider.
+
+Tailwind CSS Snap Points: For perfect alignment of book cards during scrolling.
+
+Lucide React: For navigation iconography.

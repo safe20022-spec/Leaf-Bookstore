@@ -77,4 +77,20 @@ export const bookService = {
 
     return processedBooks;
   },
+  async getSaleBooks() {
+    const discountedBooks = MOCK_BOOKS.filter(book => book.isOnSale);
+
+    return discountedBooks.map(book => {
+        const discount = book.discountPercentage || 0;
+        const originalPrice = book.oldPrice;
+        
+        const calculatedNewPrice = originalPrice - (originalPrice * (discount / 100));
+
+        return {
+            ...book,
+            oldPrice: originalPrice, // السعر قبل الخصم
+            newPrice: calculatedNewPrice // السعر بعد الخصم
+        };
+    });
+},
 };

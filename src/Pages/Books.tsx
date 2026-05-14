@@ -1,6 +1,7 @@
 import Header from "../Components/layout/Header";
 import BooksGridContainer from "../Components/Books/Grid/BooksGridContainer";
 import FilterSidebar from "../Components/Books/Filter/FilterSidebar";
+import BooksOnSale from "../Components/Books/BooksOnSale";
 const Books = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -19,6 +20,7 @@ const Books = () => {
           </section>
 
         </div>
+        <BooksOnSale />
       </main>
     </div>
   )
