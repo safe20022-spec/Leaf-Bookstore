@@ -37,7 +37,7 @@ const FilterSidebar = () => {
   };
 
   return (
-    <aside className="w-64 p-4 rounded-lg bg-white hidden lg:block sticky top-[70px] h-[calc(100vh-70px)] overflow-y-auto scrollbar-hide">
+    <aside className="w-64 p-4 rounded-lg bg-white hidden lg:block sticky top-[120px] h-[calc(100vh-70px)] overflow-y-auto scrollbar-hide">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Filter Option</h2>
 
       {/* 1. Choose Publisher */}

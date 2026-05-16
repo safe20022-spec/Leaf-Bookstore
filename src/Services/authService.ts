@@ -1,4 +1,5 @@
 import { MOCK_USERS } from '../Data/users';
+import type { User } from '../Types';
 interface userData {
     name: string;
     email: string;
@@ -23,9 +24,10 @@ export const authService = {
     }
 
     const registeredUsers = JSON.parse(localStorage.getItem('registered_users') || '[]');
-    const newUser = { 
+    const newUser: User = {
       ...userData, 
-      avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${userData.name}` 
+      avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${userData.name}`,
+      id: crypto.randomUUID()
     };
     
     registeredUsers.push(newUser);

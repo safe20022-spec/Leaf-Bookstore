@@ -88,8 +88,8 @@ export const bookService = {
 
         return {
             ...book,
-            oldPrice: originalPrice, // السعر قبل الخصم
-            newPrice: calculatedNewPrice // السعر بعد الخصم
+            oldPrice: originalPrice, 
+            newPrice: calculatedNewPrice
         };
     });
 },

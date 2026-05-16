@@ -112,3 +112,36 @@ React Refs & State: For precise DOM manipulation of the slider.
 Tailwind CSS Snap Points: For perfect alignment of book cards during scrolling.
 
 Lucide React: For navigation iconography.
+
+🚀 Phase 6: Multi-User Personalized Favorites System
+Engineered a secure, isolated Favorites system that links persistent user states with specific dynamic catalog interactions.
+
+Key Technical Achievements:
+
+Decoupled Multi-User Storage Architecture:
+
+Customized Zustand’s persist middleware configuration by overriding the native storage layer (getItem, setItem).
+
+Dynamically bound the LocalStorage keys using unique UUIDs generated during the authentication process (e.g., lumina-favs-${userId}).
+
+Ensured complete, secure data isolation between different authenticated profiles on the same browser session.
+
+State-Driven UI Interactions:
+
+Implemented an optimized isFavorite(bookId) evaluation memoized within the global store to prevent unnecessary re-renders during catalog filtering.
+
+Developed a reactive toggle interface (toggleFavorite) that instantaneously updates the localized arrays in RAM and dispatches persistent syncs to LocalStorage.
+
+State Hydration & Session Guardrails:
+
+Reordered the logout routine sequence within useAuthStore to securely isolate and wipe active RAM catalogs without overwriting the user's offline database blocks.
+
+Leveraged Zustand’s native .persist.rehydrate() method inside the login flow to enforce instantaneous, reactive extraction of historical user preferences upon profile swapping.
+
+Updated Tech Stack:
+
+Zustand Persist Middleware: Custom configuration for dynamic key composition.
+
+Lucide React: Context-aware conditional icon filling based on active Boolean state tracking.
+
+JavaScript Web APIs: Strict, non-destructive lifecycle handling of localStorage strings.

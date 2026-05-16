@@ -86,6 +86,7 @@ const BooksOnSale = () => {
                             oldPrice={book.oldPrice} 
                             rating={book.averageRating} 
                             discount={book.discountPercentage} 
+                            image={book.image}
                         />
                     </div>
                 ))}

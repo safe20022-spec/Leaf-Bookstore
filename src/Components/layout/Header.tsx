@@ -1,4 +1,3 @@
-// src/Components/layout/Header.tsx
 import { Search, ShoppingCart, Bell, Menu, User, LogOut } from 'lucide-react';
 import { useAuthStore } from '../../Store/useAuthStore';
 import { Link } from 'react-router-dom';
@@ -28,7 +27,7 @@ const Header = () => {
           <input 
             type="text" 
             placeholder="Search books, authors, genres..." 
-            className="w-full bg-gray-50 border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-green-500 transition-all"
+            className="w-full bg-gray-50 border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
           />
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600" size={18} />
         </div>

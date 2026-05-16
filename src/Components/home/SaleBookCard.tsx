@@ -7,24 +7,30 @@ interface SaleBookProps {
   oldPrice: number;
   rating: number;
   discount: number;
-  imageColor?: string;
+  image: string;
 }
 
-const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, imageColor }: SaleBookProps) => {
+const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, image }: SaleBookProps) => {
   return (
     <div className="flex flex-col group">
-      <div className={`relative w-full aspect-[3/4] ${imageColor} rounded-2xl mb-4 overflow-hidden shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md`}>
-        <div className="absolute top-0 left-0 bg-orange-500 text-white font-bold text-sm px-3 py-1.5 rounded-br-xl z-10">
-          {discount}
+      <div className="relative w-full aspect-[3/4] rounded-2xl mb-4 overflow-hidden shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md bg-gray-100">
+        
+        <div className="absolute top-0 left-0 bg-[#FF776D] text-white font-bold text-sm px-3 py-1.5 rounded-br-xl z-10">
+          {discount}%
         </div>
         
-        <div className="w-full h-full flex items-center justify-center">
-           <div className="w-16 h-24 bg-white/30 rounded shadow-lg"></div>
-        </div>
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy" 
+        />
+        
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
       </div>
 
       <div className="flex flex-col">
-        <h4 className="font-bold text-gray-800 text-md mb-1 truncate">{title}</h4>
+        <h4 className="font-bold text-gray-800 text-md mb-1 truncate" title={title}>{title}</h4>
         <p className="text-[12px] text-green-600 font-medium mb-3 uppercase tracking-tight">
           {categories.join(' • ')}
         </p>
