@@ -2,9 +2,13 @@ import Header from "../Components/layout/Header";
 import BooksGridContainer from "../Components/Books/Grid/BooksGridContainer";
 import FilterSidebar from "../Components/Books/Filter/FilterSidebar";
 import BooksOnSale from "../Components/Books/BooksOnSale";
+import Features from "../Components/home/Features";
+import Subscribe from "../Components/home/Subscribe";
+import Footer from "../Components/layout/Footer";
+
 const Books = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white container mx-auto px-4 py-8">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 py-8">
@@ -22,8 +26,12 @@ const Books = () => {
         </div>
         <BooksOnSale />
       </main>
+      
+      <Features />
+      <Subscribe />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Books;

@@ -14,6 +14,7 @@ import NewsCard from '../Components/home/NewsCard';
 import StatItem from '../Components/home/StatItem';
 import Subscribe from '../Components/home/Subscribe';
 import Footer from '../Components/layout/Footer';
+import Features from '../Components/home/Features';
 
 
 
@@ -32,28 +33,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 py-8 border-t border-b border-gray-50">
-            <FeatureCard 
-            icon={<Truck size={24} />} 
-            title="Quick Delivery" 
-            description="Orders over $50" 
-            />
-            <FeatureCard 
-            icon={<ShieldCheck size={24} />} 
-            title="Secure Payment" 
-            description="100% secure payment" 
-            />
-            <FeatureCard 
-            icon={<ThumbsUp size={24} />} 
-            title="Best Quality" 
-            description="Original products" 
-            />
-            <FeatureCard 
-            icon={<Headset size={24} />} 
-            title="Return Guarantee" 
-            description="Within 30 days" 
-            />
-        </div>
+        <Features />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <BookSelectionSection 
@@ -175,7 +155,7 @@ const Home = () => {
                 price={14.00}
                 oldPrice={28.00}
                 rating={4.8}
-                discount="50%"
+                discount={50}
                 imageColor="bg-blue-50"
                 />
                 <SaleBookCard 
@@ -184,7 +164,7 @@ const Home = () => {
                 price={12.50}
                 oldPrice={25.00}
                 rating={4.9}
-                discount="50%"
+                discount={50}
                 imageColor="bg-orange-50"
                 />
                 <SaleBookCard 
@@ -193,7 +173,7 @@ const Home = () => {
                 price={15.00}
                 oldPrice={30.00}
                 rating={4.7}
-                discount="50%"
+                discount={50}
                 imageColor="bg-gray-100"
                 />
             </div>

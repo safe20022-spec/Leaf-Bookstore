@@ -27,7 +27,7 @@ const BookGridCard = ({ book }: BookGridCardProps) => {
             e.stopPropagation();
             toggleFavorite(id);
           }}
-          className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm transition-all hover:scale-110"
+          className="absolute cursor-pointer top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm transition-all hover:scale-110"
         >
           <Heart 
             size={18} 

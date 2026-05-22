@@ -7,10 +7,11 @@ interface SaleBookProps {
   oldPrice: number;
   rating: number;
   discount: number;
-  image: string;
+  image?: string;
+  imageColor?: string;
 }
 
-const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, image }: SaleBookProps) => {
+const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, image, imageColor }: SaleBookProps) => {
   return (
     <div className="flex flex-col group">
       <div className="relative w-full aspect-[3/4] rounded-2xl mb-4 overflow-hidden shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md bg-gray-100">
