@@ -5,6 +5,7 @@ interface ViewStoreState {
   viewMode: 'grid' | 'list';
   timeFilter: string;
   filters: {
+    searchQuery: string;
     editorPicks: string;
     publisher: string;
     year: string;
@@ -32,6 +33,7 @@ export const useViewStore = create<ViewStoreState>()(
       viewMode: 'grid',
       timeFilter: 'This Month',
       filters: {
+        searchQuery: '',
         editorPicks: '',
         publisher: '',
         year: '',
@@ -56,7 +58,7 @@ export const useViewStore = create<ViewStoreState>()(
         set({
           currentPage: 1,
           timeFilter: 'This Month',
-          filters: { editorPicks: '', publisher: '', year: '', categories: [], priceRange: [0, 1000], rating: null },
+          filters: { searchQuery: '', editorPicks: '', publisher: '', year: '', categories: [], priceRange: [0, 1000], rating: null },
         }),
 
       setCurrentPage: (page) => set({ currentPage: page }),

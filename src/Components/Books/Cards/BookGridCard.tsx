@@ -27,13 +27,13 @@ const BookGridCard = ({ book }: BookGridCardProps) => {
             e.stopPropagation();
             toggleFavorite(id);
           }}
-          className="absolute cursor-pointer top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm transition-all hover:scale-110"
+          className={`absolute cursor-pointer top-3 right-3 p-2  backdrop-blur-sm rounded shadow-sm transition-all ${favorited? "bg-green-500" : "bg-white"}`}
         >
           <Heart 
-            size={18} 
+            size={20} 
             className={`transition-colors duration-300 ${
               favorited 
-                ? "fill-green-500 text-green-500" 
+                ? "fill-green-500 text-white" 
                 : "text-gray-400 hover:text-green-500"
             }`} 
           />
@@ -43,19 +43,19 @@ const BookGridCard = ({ book }: BookGridCardProps) => {
       <div className="space-y-2 flex-1 flex flex-col">
         <div className="flex justify-between items-start">
           <div className="flex-1">
-            <h3 className="font-bold text-gray-900 truncate text-sm">{title}</h3>
-            <p className="text-xs text-gray-400 font-medium">{author}</p>
+            <h3 className="font-bold text-gray-900 truncate text-md">{title}</h3>
+            <p className="text-sm text-gray-400 font-medium">{author}</p>
           </div>
         </div>
         
         <div className="flex items-center gap-3 group-hover:opacity-0 group-hover:invisible transition-all duration-300">
           <div className="flex items-center gap-1">
-            <Star size={14} className="fill-yellow-400 text-yellow-400" />
-            <span className="text-xs font-bold text-gray-600">{averageRating}</span>
+            <Star size={16} className="fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-bold text-gray-600">{averageRating}</span>
           </div>
           <div className="flex items-center gap-1">
-            <Heart size={12} className={favorited ? "fill-green-500 text-green-500" : "text-gray-300"} />
-            <span className="text-[10px] font-bold text-gray-400">
+            <Heart size={14} className={favorited ? "fill-green-500 text-green-500" : "text-gray-300"} />
+            <span className="text-[14px] font-bold text-gray-400">
               {favorited ? totalHearts + 1 : totalHearts}
             </span>
           </div>

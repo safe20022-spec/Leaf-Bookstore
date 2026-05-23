@@ -30,7 +30,7 @@ const ControlBar = ({ viewMode, setViewMode }: ControlBarProps) => {
           <button
             key={filter}
             onClick={() => setTimeFilter(filter)}
-            className={`transition-all pb-1 cursor-pointer ${
+            className={`transition-all pb-1 cursor-pointer text-lg ${
               timeFilter === filter 
                 ? 'text-gray-900 border-b-2 border-green-500' 
                 : 'hover:text-gray-600'
@@ -66,7 +66,7 @@ const ControlBar = ({ viewMode, setViewMode }: ControlBarProps) => {
         <div className="relative">
           <button 
             onClick={() => setIsSortOpen(!isSortOpen)}
-            className="flex items-center gap-2 bg-white border border-gray-100 px-4 py-2 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer min-w-[140px] justify-between"
+            className="flex items-center gap-2 bg-white border border-gray-100 px-4 py-2 rounded-xl text-md font-bold text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer min-w-[140px] justify-between"
           >
             <span className="text-gray-600">{currentSortLabel}</span>
             <ChevronDown size={16} className={`transition-transform ${isSortOpen ? 'rotate-180' : ''}`} />
@@ -84,7 +84,7 @@ const ControlBar = ({ viewMode, setViewMode }: ControlBarProps) => {
                       updateFilter('editorPicks', option.value);
                       setIsSortOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-50 flex items-center justify-between ${
+                    className={`w-full text-left px-4 py-3 text-md font-medium transition-colors hover:bg-gray-50 flex items-center justify-between ${
                       filters.editorPicks === option.value ? 'text-green-600 bg-green-50/50' : 'text-gray-600'
                     }`}
                   >

@@ -13,10 +13,10 @@ interface SaleBookProps {
 
 const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, image, imageColor }: SaleBookProps) => {
   return (
-    <div className="flex flex-col group">
+    <div className="flex flex-col group cursor-pointer">
       <div className="relative w-full aspect-[3/4] rounded-2xl mb-4 overflow-hidden shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md bg-gray-100">
         
-        <div className="absolute top-0 left-0 bg-[#FF776D] text-white font-bold text-sm px-3 py-1.5 rounded-br-xl z-10">
+        <div className="absolute top-0 left-0 bg-[#FF776D] text-white font-bold text-md px-3 py-1.5 rounded-br-xl z-10">
           {discount}%
         </div>
         
@@ -31,7 +31,7 @@ const SaleBookCard = ({ title, categories, price, oldPrice, rating, discount, im
       </div>
 
       <div className="flex flex-col">
-        <h4 className="font-bold text-gray-800 text-md mb-1 truncate" title={title}>{title}</h4>
+        <h4 className="font-bold text-gray-800 text-lg mb-1 truncate" title={title}>{title}</h4>
         <p className="text-[12px] text-green-600 font-medium mb-3 uppercase tracking-tight">
           {categories.join(' • ')}
         </p>

@@ -31,7 +31,7 @@ const PaginationBar = ({ activeBooks }: PaginationBarProps) => {
         <button
           onClick={prevPage}
           disabled={currentPage === 1}
-          className="p-2.5 rounded-xl border border-gray-100 text-gray-500 hover:bg-gray-50 hover:text-green-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="p-2.5 rounded-xl border border-gray-100 text-gray-500 hover:bg-gray-50 hover:text-green-600 transition-all disabled:opacity-40 cursor-pointer"
         >
           <ChevronLeft size={16} />
         </button>
@@ -40,7 +40,7 @@ const PaginationBar = ({ activeBooks }: PaginationBarProps) => {
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className={`w-9 h-9 rounded-xl text-xs font-bold transition-all ${
+            className={`w-9 h-9 cursor-pointer rounded-xl text-xs font-bold transition-all ${
               currentPage === page
                 ? "bg-green-600 text-white shadow-md shadow-green-100"
                 : "bg-gray-50 text-gray-600 hover:bg-gray-100"
@@ -53,7 +53,7 @@ const PaginationBar = ({ activeBooks }: PaginationBarProps) => {
         <button
           onClick={() => nextPage(totalPages)}
           disabled={currentPage === totalPages}
-          className="p-2.5 rounded-xl border border-gray-100 text-gray-500 hover:bg-gray-50 hover:text-green-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="p-2.5 rounded-xl border border-gray-100 text-gray-500 hover:bg-gray-50 hover:text-green-600 transition-all disabled:opacity-40 cursor-pointer"
         >
           <ChevronRight size={16} />
         </button>

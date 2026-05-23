@@ -384,58 +384,103 @@ export const MOCK_BOOKS: Book[] = [
     isOnSale: true,
     discountPercentage: 50,
   },
+  {
+    id: 'b-25',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
+  {
+    id: 'b-26',
+    title: 'Thinking, Fast and Slow',
+    author: 'Daniel Kahneman',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: '	https://covers.openlibrary.org/b/isbn/9780374275631-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
+  {
+    id: 'b-27',
+    title: 'The Power of Habit',
+    author: 'Charles Duhigg',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: 'https://covers.openlibrary.org/b/isbn/9780812981605-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
+  {
+    id: 'b-28',
+    title: 'Outliers: The Story of Success',
+    author: 'Malcolm Gladwell',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: 'https://covers.openlibrary.org/b/isbn/9780316017924-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
+  {
+    id: 'b-29',
+    title: 'The Tipping Point',
+    author: 'Malcolm Gladwell',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: 'https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
+  {
+    id: 'b-30',
+    title: 'Quiet: The Power of Introverts',
+    author: 'Susan Cain',
+    description: "I'am Gonna Tell You How To Be Legend",
+    image: 'https://covers.openlibrary.org/b/isbn/9780307352156-L.jpg',
+    categories: ['Documentary', 'History'],
+    oldPrice: 50,
+    newPrice: 40,
+    averageRating: 0,
+    totalHearts: 7,
+    createdAt: "2026-05-13T08:00:00Z",
+    publisher: "Pearson",
+    isOnSale: true,
+    discountPercentage: 50,
+  },
 ];
 
 
 
-// إن الهيكل المتبع في الرابط يعتمد على الرقم الدولي المعياري للكتاب (ISBN).
-
-// لتوفير 50 رابطاً مباشراً وصحيحاً لصور أغلفة كتب حقيقية وشهيرة (روايات عالمية، كتب علمية، وتطوير ذات)، قمت بجمع قائمة بالرقم الدولي لكل كتاب وصياغتها بنفس الهيكل الذي طلبته بدقة عالية (الحجم الكود L للأحجام الكبيرة):
-
-// قائمة 50 كتاباً مع عناوينها وروابط الأغلفة المباشرة
-// #	عنوان الكتاب	رابط غلاف الكتاب (Open Library)
-// 1	1984 - George Orwell	https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg
-// 2	To Kill a Mockingbird - Harper Lee	https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg
-// 3	The Great Gatsby - F. Scott Fitzgerald	https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg
-// 4	The Catcher in the Rye - J.D. Salinger	https://covers.openlibrary.org/b/isbn/9780316769174-L.jpg
-// 5	The Hobbit - J.R.R. Tolkien	https://covers.openlibrary.org/b/isbn/9780345339683-L.jpg
-// 6	Animal Farm - George Orwell	https://covers.openlibrary.org/b/isbn/9780451526342-L.jpg
-// 7	Lord of the Flies - William Golding	https://covers.openlibrary.org/b/isbn/9780399501487-L.jpg
-// 8	Pride and Prejudice - Jane Austen	https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg
-// 9	One Hundred Years of Solitude - Gabriel García Márquez	https://covers.openlibrary.org/b/isbn/9780060883287-L.jpg
-// 10	Brave New World - Aldous Huxley	https://covers.openlibrary.org/b/isbn/9780060850524-L.jpg
-// 11	The Alchemist - Paulo Coelho	https://covers.openlibrary.org/b/isbn/9780061122415-L.jpg
-// 12	The Chronicles of Narnia - C.S. Lewis	https://covers.openlibrary.org/b/isbn/9780066238500-L.jpg
-// 13	The Da Vinci Code - Dan Brown	https://covers.openlibrary.org/b/isbn/9780307474278-L.jpg
-// 14	Crime and Punishment - Fyodor Dostoevsky	https://covers.openlibrary.org/b/isbn/9780140449136-L.jpg
-// 15	The Brothers Karamazov - Fyodor Dostoevsky	https://covers.openlibrary.org/b/isbn/9780374528379-L.jpg
-// 16	Dune - Frank Herbert	https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg
-// 17	Frankenstein - Mary Shelley	https://covers.openlibrary.org/b/isbn/9780141439471-L.jpg
-// 18	The Odyssey - Homer	https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg
-// 19	The Iliad - Homer	https://covers.openlibrary.org/b/isbn/9780140275360-L.jpg
-// 20	Sapiens: A Brief History of Humankind - Yuval Noah Harari	https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg
-// 21	Homo Deus: A Brief History of Tomorrow - Yuval Noah Harari	https://covers.openlibrary.org/b/isbn/9780062464316-L.jpg
-// 22	Atomic Habits - James Clear	https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg
-// 23	Thinking, Fast and Slow - Daniel Kahneman	https://covers.openlibrary.org/b/isbn/9780374275631-L.jpg
-// 24	The Power of Habit - Charles Duhigg	https://covers.openlibrary.org/b/isbn/9780812981605-L.jpg
-// 25	Outliers: The Story of Success - Malcolm Gladwell	https://covers.openlibrary.org/b/isbn/9780316017924-L.jpg
-// 26	The Tipping Point - Malcolm Gladwell	https://covers.openlibrary.org/b/isbn/9780316346627-L.jpg
-// 27	Quiet: The Power of Introverts - Susan Cain	https://covers.openlibrary.org/b/isbn/9780307352156-L.jpg
-// 28	Rich Dad Poor Dad - Robert T. Kiyosaki	https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg
-// 29	The 7 Habits of Highly Effective People - Stephen R. Covey	https://covers.openlibrary.org/b/isbn/9781451639612-L.jpg
-// 30	How to Win Friends and Influence People - Dale Carnegie	https://covers.openlibrary.org/b/isbn/9780671027032-L.jpg
-// 31	Zero to One - Peter Thiel	https://covers.openlibrary.org/b/isbn/9780804139298-L.jpg
-// 32	The Lean Startup - Eric Ries	https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg
-// 33	Good to Great - Jim Collins	https://covers.openlibrary.org/b/isbn/9780066620992-L.jpg
-// 34	Deep Work - Cal Newport	https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg
-// 35	Digital Minimalism - Cal Newport	https://covers.openlibrary.org/b/isbn/9780525536512-L.jpg
-// 36	The Subtitle Art of Not Giving a F*ck - Mark Manson	https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg
-// 37	Start with Why - Simon Sinek	https://covers.openlibrary.org/b/isbn/9781591846352-L.jpg
-// 38	Leaders Eat Last - Simon Sinek	https://covers.openlibrary.org/b/isbn/9781591845324-L.jpg
-// 39	Man's Search for Meaning - Viktor E. Frankl	https://covers.openlibrary.org/b/isbn/9780807014295-L.jpg
-// 40	Meditations - Marcus Aurelius	https://covers.openlibrary.org/b/isbn/9780812968255-L.jpg
-// 41	Letters from a Stoic - Seneca	https://covers.openlibrary.org/b/isbn/9780140442106-L.jpg
-// 42	The Daily Stoic - Ryan Holiday	https://covers.openlibrary.org/b/isbn/9780735211735-L.jpg
-// 43	Ego Is the Enemy - Ryan Holiday	https://covers.openlibrary.org/b/isbn/9781591847816-L.jpg
-// 44	The Obstacle Is the Way - Ryan Holiday	https://covers.openlibrary.org/b/isbn/9781591846352-L.jpg
-// 45	Mastery - Robert Greene

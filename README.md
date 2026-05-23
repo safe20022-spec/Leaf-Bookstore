@@ -291,3 +291,34 @@ Lucide React: Context-aware conditional icon filling based on active Boolean sta
 
 
 JavaScript Web APIs: Strict, non-destructive lifecycle handling of localStorage strings.
+
+🚀 Phase 7: Clean Architecture Pagination & Hardware-Accelerated Transitions
+Engineered a highly synchronized, server-aware Pagination System coupled with fluid, non-destructive UI state transitions.
+
+Key Technical Achievements:
+Uni-Directional Data Flow Desynchronization Fix: Solved a critical architectural mismatch by refactoring the PaginationBar to consume the single source of truth (the active server array fetched via TanStack Query) rather than static data, ensuring seamless adaptation to dynamic multi-criteria filter counts.
+
+Zustand Persist Selective Exclusion (partialize): Isolated volatile UI states (currentPage) from global layout persistence boundaries by writing a custom partialize filter, preventing LocalStorage cache state-stamping from overriding reactive runtime state resets during manual catalog filtering.
+
+Deterministic Windowed Array Slicing: Implemented zero-cost mathematical boundaries (indexOfFirstBook / indexOfLastBook) using pure JS .slice(), strictly positioning calculations below loading guardrails (isLoading) to prevent empty DOM-node computation and ensure absolute React Hook sequencing.
+
+Hardware-Accelerated Kinetic Transitions: Authored a fluid, cinematic horizontal entry transition (fadeInRight) triggered dynamically by using the currentPage state as a deterministic React VDOM key, enforcing full garbage-collection of old nodes and smoothly rendering new rows via a custom Cubic-Bezier timing curve (cubic-bezier(0.16, 1, 0.3, 1)) with native GPU transform: translateX interpolation.
+
+🚀 Phase 8: Global Omni-Search Integration & Frictionless UX Cross-Routing
+Engineered a synchronized, multi-attribute Global Search Engine decoupled across isolated components, enabling omni-present catalog queries with instant cross-page contextual redirection.
+
+Key Technical Achievements:
+Frictionless UX Cross-Page Redirection: Implemented a real-time routing listener within the global Header utilizing React Router's useLocation and useNavigate APIs. When a user inputs a query from any static context (e.g., /, /profile), the application programmatically forces an instantaneous client-side redirect to the /books catalog route on the very first keystroke without sacrificing state telemetry.
+
+Multi-Attribute Tokenized Filtering Engine: Designed an optimized frontend search evaluator inside BooksGridContainer that intercepts raw API responses and evaluates inputs against a sanitized, case-insensitive composite matrix (tokenizing both book.title and book.author).
+
+State Sync Resilience (Cache Eviction Protection): Developed a defensive fallback mechanism (filters?.searchQuery || '') to intercept structural type-mismatches caused by historical Zustand local storage persistence blocks, ensuring backward compatibility across schema mutations.
+
+Downstream Pagination Recalibration: Architected the layout lifecycle so that real-time text mutations trigger an immediate cascade reset (currentPage: 1), preventing out-of-bounds page slicing and dynamically adjusting the layout size inside the PaginationBar based on active search subsets rather than the total collection.
+
+Updated Tech Stack:
+React Router DOM v6 (useLocation & useNavigate): For programmatic, state-preserving runtime location overrides.
+
+Defensive Defensive Programming Patterns: Explicit data-type casting (String()) and optional chaining to neutralize undefined metadata crashes within live-data streams.
+
+Zustand Reactive Dispatches: For instant multi-component cross-talk between isolated layout headers and core viewports.

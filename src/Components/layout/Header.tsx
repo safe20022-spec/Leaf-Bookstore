@@ -1,14 +1,30 @@
-import { Search, ShoppingCart, Bell, Menu, User, LogOut } from 'lucide-react';
+import { Search, ShoppingCart, Bell, Menu, LogOut } from 'lucide-react';
 import { useAuthStore } from '../../Store/useAuthStore';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; 
+import { useViewStore } from '../../Store/useViewStore';
 
 const Header = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
+  const { filters, updateFilter } = useViewStore();
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    if (location.pathname !== '/books') {
+      navigate('/books');
+    }
+
+    updateFilter('searchQuery', value);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between gap-8">
         
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
           <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-green-200">
             L
@@ -16,31 +32,36 @@ const Header = () => {
           <span className="text-2xl font-black text-gray-900 tracking-tighter">LUMINA</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-bold text-gray-500">
+        {/* Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-8 text-lg font-bold text-gray-500">
           <Link to="/" className="text-green-600">Home</Link>
           <Link to="/books" className="hover:text-green-600 transition-colors">Shop</Link>
           <a href="#" className="hover:text-green-600 transition-colors">Categories</a>
           <a href="#" className="hover:text-green-600 transition-colors">About</a>
         </nav>
 
+        {/* 🔍 حقل البحث الذكي المعدل */}
         <div className="hidden md:flex flex-1 max-w-md relative group">
           <input 
             type="text" 
+            value={filters.searchQuery}
             placeholder="Search books, authors, genres..." 
-            className="w-full bg-gray-50 border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            onChange={handleSearchChange} 
+            className="w-full bg-gray-50 border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-900"
           />
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600" size={18} />
         </div>
 
+        {/* Action Buttons & Profile */}
         <div className="flex items-center gap-4">
           {isAuthenticated ? (
             <div className="flex items-center gap-3 md:gap-5">
-              <button className="relative p-2.5 text-gray-500 hover:bg-gray-50 rounded-xl transition-colors">
+              <button className="relative cursor-pointer border border-gray-200 p-2.5 text-black/70 hover:bg-green-200 rounded-xl transition-colors">
                 <Bell size={22} />
                 <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
               </button>
 
-              <button className="relative p-2.5 text-gray-500 hover:bg-gray-50 rounded-xl transition-colors">
+              <button className="relative cursor-pointer border border-gray-200 p-2.5 text-black/70 hover:bg-green-200 rounded-xl transition-colors">
                 <ShoppingCart size={22} />
                 <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
               </button>

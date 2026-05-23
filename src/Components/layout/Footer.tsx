@@ -13,7 +13,7 @@ const Footer = () => {
               </div>
               <span className="text-2xl font-black text-gray-900 tracking-tighter">LUMINA</span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 text-md leading-relaxed">
               Lumina is your premier destination for discovering the best books across all genres. We believe in the power of reading to transform lives.
             </p>
             <div className="flex gap-4">
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-xs">Quick Links</h4>
+            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-md">Quick Links</h4>
             <ul className="flex flex-col gap-4 text-sm text-gray-500 font-medium">
               <li><a href="#" className="hover:text-green-600 transition-colors">Home</a></li>
               <li><a href="#" className="hover:text-green-600 transition-colors">Shop All Books</a></li>
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-xs">Support</h4>
+            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-md">Support</h4>
             <ul className="flex flex-col gap-4 text-sm text-gray-500 font-medium">
               <li><a href="#" className="hover:text-green-600 transition-colors">Order Tracking</a></li>
               <li><a href="#" className="hover:text-green-600 transition-colors">Privacy Policy</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-xs">Contact Us</h4>
+            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-widest text-md">Contact Us</h4>
             <ul className="flex flex-col gap-4 text-sm text-gray-500">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-green-600 shrink-0" />
@@ -66,13 +66,13 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400">
+          <p className="text-sm text-gray-400">
             © 2026 Lumina Bookstore. All rights reserved. Built with ❤️ for book lovers.
           </p>
           <div className="flex gap-6 grayscale opacity-50">
-             <span className="text-[10px] font-bold">VISA</span>
-             <span className="text-[10px] font-bold">MASTERCARD</span>
-             <span className="text-[10px] font-bold">PAYPAL</span>
+             <span className="text-[14px] font-bold">VISA</span>
+             <span className="text-[14px] font-bold">MASTERCARD</span>
+             <span className="text-[14px] font-bold">PAYPAL</span>
           </div>
         </div>
       </div>

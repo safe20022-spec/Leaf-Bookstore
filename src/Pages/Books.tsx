@@ -19,7 +19,6 @@ const Books = () => {
           </aside>
 
           <section className="flex-1">
-             <h2 className="text-xl font-black text-gray-900 mb-6">Books</h2>
              <BooksGridContainer />
           </section>
 

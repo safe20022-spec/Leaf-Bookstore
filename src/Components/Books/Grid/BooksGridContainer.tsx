@@ -37,22 +37,43 @@ const BooksGridContainer = () => {
   }
 
   const safeBooks = books || [];
+
+  const filteredBooksBySearch = safeBooks.filter((book) => {
+    const query = (filters?.searchQuery || '').toLowerCase().trim();
+    if (!query) return true; 
+    
+    const bookTitle = book?.title ? String(book.title).toLowerCase() : '';
+    const bookAuthor = book?.author ? String(book.author).toLowerCase() : '';
+
+    return (
+      bookTitle.includes(query) || 
+      bookAuthor.includes(query)
+    );
+  });
   
-  const indexOfLastBook = currentPage * itemsPerPage; // 12
-  const indexOfFirstBook = indexOfLastBook - itemsPerPage; // 12 - 12 = 0
-  const currentBooksToShow = safeBooks.slice(indexOfFirstBook, indexOfLastBook);
+  const indexOfLastBook = currentPage * itemsPerPage;
+  const indexOfFirstBook = indexOfLastBook - itemsPerPage;
+
+  const currentBooksToShow = filteredBooksBySearch.slice(indexOfFirstBook, indexOfLastBook);
 
   return (
     <div className="flex-1 flex flex-col">
+      <h2 className="text-2xl font-black text-gray-900 mb-3">Books</h2>
       <ControlBar viewMode={viewMode} setViewMode={setViewMode} />
 
-      {viewMode === 'grid' ? (
-        <GridView books={currentBooksToShow} />
+      {filteredBooksBySearch.length === 0 ? (
+        <div className="py-20 text-center text-gray-500 font-medium">
+          No books found matching "{filters?.searchQuery}"
+        </div>
       ) : (
-        <ListView books={currentBooksToShow} />
+        viewMode === 'grid' ? (
+          <GridView books={currentBooksToShow} />
+        ) : (
+          <ListView books={currentBooksToShow} />
+        )
       )}
 
-      <PaginationBar activeBooks={safeBooks} />
+      <PaginationBar activeBooks={filteredBooksBySearch} />
     </div>
   );
 };
