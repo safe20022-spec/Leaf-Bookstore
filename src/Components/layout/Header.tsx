@@ -40,7 +40,6 @@ const Header = () => {
           <a href="#" className="hover:text-green-600 transition-colors">About</a>
         </nav>
 
-        {/* 🔍 حقل البحث الذكي المعدل */}
         <div className="hidden md:flex flex-1 max-w-md relative group">
           <input 
             type="text" 

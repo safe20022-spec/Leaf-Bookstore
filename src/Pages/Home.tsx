@@ -2,8 +2,6 @@ import { Users, BookOpen, SwatchBook, PenTool } from 'lucide-react';
 import Header from '../Components/layout/Header';
 import PromoBanner from '../Components/home/PromoBanner';
 import BestSellerCard from '../Components/home/BestSellerCard';
-import { Truck, ShieldCheck, ThumbsUp, Headset } from 'lucide-react';
-import FeatureCard from '../Components/home/FeatureCard';
 import BookSelectionSection from '../Components/home/BookSelectionSection';
 import FlashSaleCard from '../Components/home/FlashSaleCard';
 import SpecialOfferCard from '../Components/home/SpecialOfferCard';

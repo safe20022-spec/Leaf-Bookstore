@@ -39,16 +39,16 @@ export const bookService = {
         book.newPrice <= filters.priceRange[1]
     );
 
-  if (filters.year) {
-    filtered = filtered.filter((book) => {
-      const bookYear = new Date(book.createdAt).getFullYear().toString();
-      return bookYear === filters.year;
-    });
-  }
+    if (filters.year) {
+      filtered = filtered.filter((book) => {
+        const bookYear = new Date(book.createdAt).getFullYear().toString();
+        return bookYear === filters.year;
+      });
+    }
 
-  if (filters.publisher) {
-    filtered = filtered.filter((book) => book.publisher === filters.publisher);
-  }
+    if (filters.publisher) {
+      filtered = filtered.filter((book) => book.publisher === filters.publisher);
+    }
 
     let processedBooks = filtered.map((book) => {
       const bookReviews = MOCK_REVIEWS.filter((r) => r.bookId === book.id);
@@ -77,6 +77,7 @@ export const bookService = {
 
     return processedBooks;
   },
+
   async getSaleBooks() {
     const discountedBooks = MOCK_BOOKS.filter(book => book.isOnSale);
 
@@ -89,8 +90,91 @@ export const bookService = {
         return {
             ...book,
             oldPrice: originalPrice, 
-            newPrice: calculatedNewPrice
+            newPrice: calculatedNewPrice,
+            discountPercentage: discount
         };
     });
-},
+  },
+
+  async getBookById(id: string) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const targetBook = MOCK_BOOKS.find((b) => b.id === id);
+    if (!targetBook) return null;
+
+    const bookReviews = MOCK_REVIEWS.filter((r) => r.bookId === id);
+    
+    const avgRating = bookReviews.length > 0
+        ? bookReviews.reduce((sum, r) => sum + r.rating, 0) / bookReviews.length
+        : 4.5;
+
+    let finalPrice = targetBook.newPrice;
+    if (targetBook.isOnSale && targetBook.oldPrice) {
+      const discount = targetBook.discountPercentage || 0;
+      finalPrice = targetBook.oldPrice - (targetBook.oldPrice * (discount / 100));
+    }
+
+    return {
+      ...targetBook,
+      price: finalPrice,
+      rating: parseFloat(avgRating.toFixed(1)),
+      reviewsCount: bookReviews.length,
+      reviews: bookReviews,
+      coverImage: targetBook.image || 'https://via.placeholder.com/150x220?text=No+Cover', 
+      publisher: targetBook.publisher || 'Lumina Press',
+      year: targetBook.createdAt ? new Date(targetBook.createdAt).getFullYear() : '2026',
+    };
+  },
+
+  async getBooksByCategory(currentBookId: string, currentCategories: string[] = [], currentAuthor: string = '') {
+  await new Promise((resolve) => setTimeout(resolve, 800));
+
+  if (currentCategories.length === 0) return [];
+
+  const scoredBooks = MOCK_BOOKS
+    .filter((book) => book.id !== currentBookId) 
+    .map((book) => {
+      const sharedCategories = book.categories 
+        ? book.categories.filter(cat => currentCategories.includes(cat)).length
+        : 0;
+
+      const isSameAuthor = book.author === currentAuthor ? 2 : 0;
+
+      const similarityScore = sharedCategories + isSameAuthor;
+
+      return {
+        ...book,
+        similarityScore
+      };
+    });
+
+  const matchedBooks = scoredBooks
+    .filter((book) => book.similarityScore > 0)
+    .sort((a, b) => b.similarityScore - a.similarityScore);
+
+  return matchedBooks.map((book) => {
+    const bookReviews = MOCK_REVIEWS.filter((r) => r.bookId === book.id);
+    const avgRating = bookReviews.length > 0
+      ? bookReviews.reduce((sum, r) => sum + r.rating, 0) / bookReviews.length
+      : 4.5;
+
+    let finalPrice = book.newPrice;
+    if (book.isOnSale && book.oldPrice) {
+      const discount = book.discountPercentage || 0;
+      finalPrice = book.oldPrice - (book.oldPrice * (discount / 100));
+    }
+
+    return {
+      id: book.id,
+      title: book.title,
+      author: book.author,
+      price: finalPrice,
+      rating: parseFloat(avgRating.toFixed(1)),
+      reviewsCount: bookReviews.length,
+      coverImage: book.image || 'https://via.placeholder.com/150x220?text=No+Cover', 
+      publisher: book.publisher || 'Lumina Press',
+      year: book.createdAt ? new Date(book.createdAt).getFullYear() : '2026',
+    };
+  });
+}
 };

@@ -22,7 +22,7 @@ export const MOCK_BOOKS: Book[] = [
     author: 'James',
     description: 'Fly Me To The Moon And Let Play Among The Stars',
     image: 'https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg',
-    categories: ['Sci-Fi', 'Fantasy', 'Advanture'],
+    categories: ['History', 'Biography', 'Documentary'],
     oldPrice: 70,
     newPrice: 40,
     averageRating: 0,
@@ -38,7 +38,7 @@ export const MOCK_BOOKS: Book[] = [
     author: 'James',
     description: 'Fly Me To The Moon And Let Play Among The Stars',
     image: 'https://covers.openlibrary.org/b/isbn/9780141439846-L.jpg',
-    categories: ['Sci-Fi', 'Fantasy', 'Advanture'],
+    categories: ['Sci-Fi', 'Fantasy', 'Documentary'],
     oldPrice: 70,
     newPrice: 40,
     averageRating: 0,
@@ -481,6 +481,3 @@ export const MOCK_BOOKS: Book[] = [
     discountPercentage: 50,
   },
 ];
-
-
-

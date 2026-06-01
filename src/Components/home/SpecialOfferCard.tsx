@@ -1,4 +1,3 @@
-// src/components/home/SpecialOfferCard.tsx
 import { ShoppingCart } from 'lucide-react';
 
 interface SpecialOfferProps {

@@ -1,6 +1,7 @@
 import { Star, ShoppingCart, Heart } from 'lucide-react';
 import type { Book } from '../../../Types';
 import { useFavoriteStore } from '../../../Store/useFavoriteStore';
+import { useNavigate } from 'react-router-dom';
 
 interface BookGridCardProps {
   book: Book;
@@ -9,11 +10,19 @@ interface BookGridCardProps {
 const BookGridCard = ({ book }: BookGridCardProps) => {
   const { id, title, author, image, averageRating, newPrice, oldPrice, totalHearts } = book;
   
+  const navigate = useNavigate();
   const { toggleFavorite, isFavorite } = useFavoriteStore();
   const favorited = isFavorite(id);
 
+  const handleCardClick = () => {
+    navigate(`/books/${id}`);
+  };
+
   return (
-    <div className="group cursor-pointer relative bg-white rounded-3xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-green-100 border border-transparent hover:border-green-50 flex flex-col h-full">
+    <div 
+      onClick={handleCardClick}
+      className="group cursor-pointer relative bg-white rounded-3xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-green-100 border border-transparent hover:border-green-50 flex flex-col h-full"
+    >
       
       <div className="relative aspect-[3/4] mb-4 overflow-hidden rounded-2xl bg-gray-100 shrink-0">
         <img 
@@ -27,7 +36,7 @@ const BookGridCard = ({ book }: BookGridCardProps) => {
             e.stopPropagation();
             toggleFavorite(id);
           }}
-          className={`absolute cursor-pointer top-3 right-3 p-2  backdrop-blur-sm rounded shadow-sm transition-all ${favorited? "bg-green-500" : "bg-white"}`}
+          className={`absolute cursor-pointer top-3 right-3 p-2 backdrop-blur-sm rounded shadow-sm transition-all ${favorited ? "bg-green-500" : "bg-white"}`}
         >
           <Heart 
             size={20} 
@@ -69,7 +78,12 @@ const BookGridCard = ({ book }: BookGridCardProps) => {
             )}
           </div>
           
-          <button className="bg-green-600 text-white p-2.5 rounded-xl hover:bg-green-700 transition-all active:scale-90 shadow-md shadow-green-100">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            className="bg-green-600 text-white p-2.5 rounded-xl hover:bg-green-700 transition-all active:scale-90 shadow-md shadow-green-100 cursor-pointer"
+          >
             <ShoppingCart size={18} />
           </button>
         </div>

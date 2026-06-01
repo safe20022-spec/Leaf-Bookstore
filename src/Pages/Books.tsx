@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useViewStore } from "../Store/useViewStore";
+
 import Header from "../Components/layout/Header";
 import BooksGridContainer from "../Components/Books/Grid/BooksGridContainer";
 import FilterSidebar from "../Components/Books/Filter/FilterSidebar";
@@ -7,6 +11,19 @@ import Subscribe from "../Components/home/Subscribe";
 import Footer from "../Components/layout/Footer";
 
 const Books = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const updateFilter = useViewStore((state) => state.updateFilter);
+
+  const categoryFromUrl = searchParams.get("category");
+
+  useEffect(() => {
+    if (categoryFromUrl) {
+      updateFilter("categories", [categoryFromUrl]);
+
+      setSearchParams({}, { replace: true });
+    }
+  }, [categoryFromUrl, updateFilter, setSearchParams]);
+
   return (
     <div className="min-h-screen bg-white container mx-auto px-4 py-8">
       <Header />

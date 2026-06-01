@@ -7,9 +7,7 @@ interface userData {
 }
 export const authService = {
   async checkUserExists(email: string): Promise<boolean> {
-    // get registeredUsers from localStorage
     const registeredUsers = JSON.parse(localStorage.getItem('registered_users') || '[]');
-    // Join registeredUsers With The Array That In Our Code
     const allUsers = [...MOCK_USERS, ...registeredUsers];
     return allUsers.some(u => u.email === email);
   },
@@ -31,7 +29,6 @@ export const authService = {
     };
     
     registeredUsers.push(newUser);
-    // Add The Updated Version Of registeredUsers To localStorage
     localStorage.setItem('registered_users', JSON.stringify(registeredUsers));
       const { password: _, ...safeUserData } = newUser;
     return { success: true, data: safeUserData };
